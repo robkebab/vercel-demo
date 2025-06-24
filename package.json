@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "commit": "cz",
     "dev": "next dev --turbopack",
     "lint": "next lint",
     "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
     "start": "next start"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "husky": "^9.1.7",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
