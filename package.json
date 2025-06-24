@@ -1,12 +1,13 @@
 {
-  "name": "next-demo",
+  "name": "vercel-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev --turbopack",
+    "lint": "next lint",
+    "preinstall": "npx only-allow pnpm",
+    "start": "next start"
   },
   "dependencies": {
     "react": "^19.0.0",
