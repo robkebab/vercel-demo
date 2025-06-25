@@ -7,6 +7,7 @@
     "build": "next build",
     "check": "pnpm turbo format lint check-types",
     "check-types": "tsc --noEmit",
+    "components": "pnpm dlx shadcn@latest add",
     "dev": "next dev --turbopack",
     "format": "prettier --write .",
     "lint": "next lint",
@@ -15,6 +16,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "commitizen": "^4.3.1",
