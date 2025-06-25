@@ -1,9 +1,12 @@
 {
   "name": "vercel-demo",
   "version": "0.1.0",
+  "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
     "build": "next build",
+    "check": "pnpm turbo format lint check-types",
+    "check-types": "tsc --noEmit",
     "dev": "next dev --turbopack",
     "format": "prettier --write .",
     "lint": "next lint",
