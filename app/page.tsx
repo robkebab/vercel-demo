@@ -9,9 +9,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-orange-600">
+              <Typography
+                variant="h1"
+                className="text-2xl font-bold text-orange-600"
+              >
                 Wing Bada Bing
-              </h1>
+              </Typography>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
