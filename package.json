@@ -5,11 +5,14 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check": "pnpm turbo format lint check-types",
+    "check-format": "prettier --check .",
+    "check-lint": "next lint",
     "check-types": "tsc --noEmit",
+    "check": "pnpm turbo check-format check-lint check-types",
     "dev": "next dev --turbopack",
+    "fixup": "pnpm format && pnpm lint && pnpm check-types",
     "format": "prettier --write .",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "start": "next start"
