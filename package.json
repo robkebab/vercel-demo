@@ -1,9 +1,12 @@
 {
   "name": "vercel-demo",
   "version": "0.1.0",
+  "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
     "build": "next build",
+    "check": "pnpm turbo format lint check-types",
+    "check-types": "tsc --noEmit",
     "dev": "next dev --turbopack",
     "format": "prettier --write .",
     "lint": "next lint",
@@ -37,6 +40,7 @@
     "husky": "^9.1.7",
     "prettier": "3.6.0",
     "tailwindcss": "^4",
+    "turbo": "^2.5.4",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"
   },
