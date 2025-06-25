@@ -3,6 +3,7 @@
 .gitignore
 .husky/*
 .next/*
+.turbo/*
 build
 coverage
 node_modules/*
