@@ -7,13 +7,13 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/atoms/sheet";
+} from "@/components/molecules/sheet";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/atoms/tooltip";
+} from "@/components/molecules/tooltip";
 
 import { VariantProps, cva } from "class-variance-authority";
 import { Button } from "@/components/atoms/button";
