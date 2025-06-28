@@ -13,9 +13,7 @@ export function Navbar() {
         </span>
         <div className="hidden md:flex flex-col leading-tight">
           <span className="text-xs text-gray-400">Carry-out</span>
-          <span className="text-sm font-semibold text-primary">
-            6th & Congress In-Line
-          </span>
+          <span className="text-sm font-semibold text-primary">Location</span>
         </div>
         <Button
           variant="ghost"
