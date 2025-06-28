@@ -7,20 +7,20 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/molecules/sheet";
+} from "@/components/ui/sheet";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/molecules/tooltip";
+} from "@/components/ui/tooltip";
 
 import { VariantProps, cva } from "class-variance-authority";
-import { Button } from "@/components/atoms/button";
-import { Input } from "@/components/atoms/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { PanelLeftIcon } from "lucide-react";
-import { Separator } from "@/components/atoms/separator";
-import { Skeleton } from "@/components/atoms/skeleton";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, buttonVariants } from "@/components/atoms/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
