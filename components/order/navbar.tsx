@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Icon } from "../ui/icon";
+import Image from "next/image";
 
 export function Navbar() {
   return (
@@ -9,7 +10,12 @@ export function Navbar() {
           <Icon.Menu className="w-6 h-6 text-primary" />
         </button>
         <span className="hidden md:inline-flex">
-          <Icon.Drumstick className="w-8 h-8 text-primary" />
+          <Image
+            src="/images/logo.png"
+            alt="Tommy Want Wingy"
+            width={32}
+            height={32}
+          />
         </span>
         <div className="hidden md:flex flex-col leading-tight">
           <span className="text-xs text-gray-400">Carry-out</span>
@@ -27,7 +33,12 @@ export function Navbar() {
           Menu
         </span>
         <span className="md:hidden">
-          <Icon.Drumstick className="w-8 h-8 text-primary" />
+          <Image
+            src="/images/logo.png"
+            alt="Tommy Want Wingy"
+            width={32}
+            height={32}
+          />
         </span>
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
