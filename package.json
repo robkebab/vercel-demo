@@ -11,7 +11,7 @@
     "check": "pnpm turbo check-format check-lint check-types",
     "components": "pnpm dlx shadcn@latest add",
     "dev": "next dev --turbopack",
-    "fixup": "pnpm format && pnpm lint && pnpm check-types",
+    "fixup": "pnpm turbo format lint check-types",
     "format": "prettier --write .",
     "lint": "next lint --fix",
     "preinstall": "npx only-allow pnpm",
