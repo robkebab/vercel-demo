@@ -8,16 +8,14 @@ import { HomeReviews } from "@/components/home/reviews";
 
 export default function Home() {
   return (
-    <>
-      <main className="min-h-screen flex flex-col bg-background text-primary">
-        <HomeNavbar />
-        <HomeHero />
-        <HomeLocations />
-        <HomeAbout />
-        <HomeReviews />
-        <HomeCatering />
-      </main>
+    <main className="min-h-screen flex flex-col bg-background text-primary">
+      <HomeNavbar />
+      <HomeHero />
+      <HomeLocations />
+      <HomeAbout />
+      <HomeReviews />
+      <HomeCatering />
       <HomeFooter />
-    </>
+    </main>
   );
 }

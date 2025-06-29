@@ -86,7 +86,7 @@ export function HomeHero() {
           for a fantastic eating experience!
         </p>
         <Link
-          href="/#order"
+          href="/order/menu/combos"
           className="hidden md:inline-block rounded-full px-12 py-4 text-lg font-bold text-white bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
         >
           ORDER ONLINE
