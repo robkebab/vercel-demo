@@ -1,3 +1,9 @@
+import { HomeNavbar } from "@/components/home/navbar";
+
 export default function Home() {
-  return <div className="min-h-screen flex flex-col bg-background"></div>;
+  return (
+    <main className="min-h-screen flex flex-col bg-background text-primary">
+      <HomeNavbar />
+    </main>
+  );
 }
