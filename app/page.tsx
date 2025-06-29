@@ -1,3 +1,4 @@
+import { HomeAbout } from "@/components/home/about";
 import { HomeHero } from "@/components/home/hero";
 import { HomeLocations } from "@/components/home/locations";
 import { HomeNavbar } from "@/components/home/navbar";
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeHero />
       <HomeLocations />
       <HomeReviews />
+      <HomeAbout />
     </main>
   );
 }
