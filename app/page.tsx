@@ -1,6 +1,7 @@
 import { HomeHero } from "@/components/home/hero";
 import { HomeLocations } from "@/components/home/locations";
 import { HomeNavbar } from "@/components/home/navbar";
+import { HomeReviews } from "@/components/home/reviews";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HomeNavbar />
       <HomeHero />
       <HomeLocations />
+      <HomeReviews />
     </main>
   );
 }
