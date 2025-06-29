@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const NAV_ITEMS = [
   { href: "/#browse", label: "Browse Food" },
-  { href: "/#order", label: "Order Online" },
   { href: "/#about", label: "About Us" },
   { href: "/#catering", label: "Catering" },
 ];
