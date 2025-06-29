@@ -1,16 +1,22 @@
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono, Rubik_Distressed } from "next/font/google";
 import type { Metadata } from "next";
-// import { ThemeProvider } from "../components/theme-provider";
+import { ThemeProvider } from "../components/theme-provider";
 
-const geistSans = Geist({
+const robotoSans = Roboto({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-roboto-sans",
 });
 
-const geistMono = Geist_Mono({
+const rubikDistressed = Rubik_Distressed({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-rubik-distressed",
+  weight: "400",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
 });
 
 export const metadata: Metadata = {
@@ -26,16 +32,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${rubikDistressed.variable} ${robotoMono.variable} ${robotoSans.variable} antialiased`}
       >
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        > */}
-        {children}
-        {/* </ThemeProvider> */}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
