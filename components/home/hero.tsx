@@ -75,10 +75,10 @@ export function HomeHero() {
         <span className="text-lg md:text-xl text-muted-foreground mb-2 md:mb-4">
           Since 2012
         </span>
-        <h1 className="font-accent text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4 md:mb-6 leading-tight md:leading-tight">
+        <h1 className="font-accent text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4 md:mb-6 leading-tight">
           TOMMY
-          <br className="md:hidden" /> WANT
-          <br className="md:hidden" /> WINGY
+          <br /> WANT
+          <br /> WINGY
         </h1>
         <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-10">
           We make chicken lollipops! We take all the fuss and mess out of the
