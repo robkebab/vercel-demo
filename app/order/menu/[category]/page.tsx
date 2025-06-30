@@ -1,5 +1,8 @@
-import { MenuItems, MenuItemsSkeleton } from "@/components/order/menu-items";
-import { Sidenav } from "@/components/order/sidenav";
+import {
+  MenuItems,
+  MenuItemsSkeleton,
+} from "@/app/order/menu/[category]/menu-items";
+import { Sidenav } from "@/app/order/menu/[category]/sidenav";
 import { Suspense } from "react";
 import { prisma } from "@/lib/db/prisma/client";
 
