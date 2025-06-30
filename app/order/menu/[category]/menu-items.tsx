@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Product } from "@/lib/db/prisma/generated-client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { prisma } from "@/lib/db/prisma/client";
-import { addMenuItemAction } from "@/lib/actions/order";
+import { addMenuItemAction } from "@/app/order/menu/[category]/actions";
 
 interface MenuItemsProps {
   categoryId: string;

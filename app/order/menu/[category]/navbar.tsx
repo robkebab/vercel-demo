@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Icon } from "../ui/icon";
+import { Icon } from "../../../../components/ui/icon";
 import Image from "next/image";
-import { SignIn } from "../auth/auth-buttons";
+import { SignIn } from "../../../../components/auth/auth-buttons";
 import { YourOrderButton } from "./your-order-button";
 
 export function Navbar() {

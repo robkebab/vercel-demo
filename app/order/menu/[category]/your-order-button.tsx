@@ -1,6 +1,6 @@
-import { Button } from "../ui/button";
-import { Icon } from "../ui/icon";
-import { Badge } from "../ui/badge";
+import { Button } from "../../../../components/ui/button";
+import { Icon } from "../../../../components/ui/icon";
+import { Badge } from "../../../../components/ui/badge";
 import { getBagCount } from "@/lib/db/bag";
 import { Suspense } from "react";
 

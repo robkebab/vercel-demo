@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/order/navbar";
+import { Navbar } from "@/app/order/menu/[category]/navbar";
 import type { ReactNode } from "react";
 
 interface OrderLayoutProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../../../components/ui/button";
 
 interface AddToBagButtonProps {
   productId: string;
