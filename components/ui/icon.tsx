@@ -1,8 +1,12 @@
 import {
+  ArrowRightIcon,
+  AtSignIcon,
   BookOpen,
   Drumstick,
+  CircleAlert,
   Globe,
   Hamburger,
+  KeyIcon,
   Mail,
   Menu,
   Rocket,
@@ -10,10 +14,14 @@ import {
 } from "lucide-react";
 
 export const Icon = {
+  ArrowRightIcon,
+  AtSignIcon,
   BookOpen,
   Drumstick,
+  CircleAlert,
   Globe,
   Hamburger,
+  KeyIcon,
   Mail,
   Menu,
   Rocket,

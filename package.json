@@ -4,7 +4,7 @@
   "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
-    "build": "pnpm db:generate && next build",
+    "build": "pnpm db:generate --no-engine && next build",
     "db:client": "prisma studio",
     "db:create-migration": "prisma migrate dev --create-only",
     "db:generate": "prisma generate",
@@ -46,6 +46,7 @@
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -56,6 +57,7 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.523.0",
     "next": "15.3.4",
+    "next-auth": "5.0.0-beta.29",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-day-picker": "^9.7.0",
@@ -63,12 +65,14 @@
     "react-resizable-panels": "^3.0.3",
     "recharts": "^3.0.0",
     "tailwind-merge": "^3.3.1",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/eslint-plugin-next": "^15.3.4",
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
