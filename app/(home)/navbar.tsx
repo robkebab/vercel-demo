@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { href: "/#browse", label: "Browse Food" },
@@ -68,15 +69,18 @@ export function HomeNavbar() {
             className="p-0 bg-background/95 backdrop-blur-sm flex flex-col min-h-screen"
           >
             <div className="flex flex-col items-center justify-center h-full py-12 gap-8">
-              <Image
-                src="/images/logo.png"
-                alt="Tommy Want Wingy Logo"
-                width={80}
-                height={53}
-                className="mb-4"
-                priority
-              />
-              <ul className="flex flex-col gap-6 text-2xl font-semibold text-foreground">
+              <Link href="/">
+                <Image
+                  src="/images/logo.png"
+                  alt="Tommy Want Wingy Logo"
+                  width={80}
+                  height={53}
+                  className="mb-4"
+                  priority
+                />
+              </Link>
+
+              <ul className="flex flex-col gap-6 text-2xl font-semibold text-foreground text-center">
                 {NAV_ITEMS.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -88,6 +92,10 @@ export function HomeNavbar() {
                   </li>
                 ))}
               </ul>
+
+              <Button variant="gradient" asChild>
+                <Link href="/order/menu/combos">Order Now</Link>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>

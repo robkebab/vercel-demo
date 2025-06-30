@@ -42,7 +42,7 @@ export function HomeLocations() {
       id="locations"
       className="w-full flex flex-col items-center py-16 md:py-28 bg-background text-primary"
     >
-      <h2 className="font-accent text-3xl md:text-5xl font-extrabold text-white text-center mb-12 md:mb-20 tracking-tight">
+      <h2 className="font-accent text-4xl md:text-6xl font-extrabold text-primary text-center mb-12 md:mb-20 tracking-tight">
         COME ON
         <br className="md:hidden" /> DOWN!
       </h2>
@@ -62,7 +62,7 @@ export function HomeLocations() {
                 priority={false}
               />
             </div>
-            <h3 className="font-bold text-lg md:text-xl text-white mb-1 tracking-wide">
+            <h3 className="font-bold text-lg md:text-xl text-primary mb-1 tracking-wide">
               {loc.name}
             </h3>
             <p className="text-sm md:text-base text-muted-foreground mb-1">
