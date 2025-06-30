@@ -3,6 +3,7 @@ import { Icon } from "../../../../components/ui/icon";
 import Image from "next/image";
 import { SignIn } from "../../../../components/auth/auth-buttons";
 import { YourOrderButton } from "./your-order-button";
+import Link from "next/link";
 
 export function Navbar() {
   return (
@@ -12,12 +13,14 @@ export function Navbar() {
           <Icon.Menu className="w-6 h-6 text-primary" />
         </button>
         <span className="hidden md:inline-flex">
-          <Image
-            src="/images/logo.png"
-            alt="Tommy Want Wingy"
-            width={32}
-            height={32}
-          />
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="Tommy Want Wingy"
+              width={32}
+              height={32}
+            />
+          </Link>
         </span>
         <div className="hidden md:flex flex-col leading-tight">
           <span className="text-xs text-gray-400">Carry-out</span>
@@ -35,12 +38,14 @@ export function Navbar() {
           Menu
         </span>
         <span className="md:hidden">
-          <Image
-            src="/images/logo.png"
-            alt="Tommy Want Wingy"
-            width={32}
-            height={32}
-          />
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              alt="Tommy Want Wingy"
+              width={32}
+              height={32}
+            />
+          </Link>
         </span>
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">

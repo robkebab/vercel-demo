@@ -27,8 +27,17 @@ const REVIEWS: Review[] = [
       { alt: "The Infatuation", src: "/images/the-infatuation.png" },
       { alt: "Keep Austin Eatin", src: "/images/keep-austin-eatin.png" },
     ],
-    text: "The wings at Tommy Want Wingy have developed an almost cult-like following in Austin, with people clamoring for their distinct, frenched chicken wings. There's no debate about flats vs drums here - all the wings start as a drumette before being cleaned into a lollipop-like shape with a little bone handle. It makes them easy to eat, which probably comes in handy when you've got the munchies after a long night out, given their original Rainey St location. They've since expanded, now with a second location at Cosmic Coffee near 290 and South Congress. – Adele Hazan",
+    text: "The wings at Tommy Want Wingy have developed an almost cult-like following in Austin, with people clamoring for their distinct, frenched chicken wings. There's no debate about flats vs drums here - all the wings start as a drumette before being cleaned into a lollipop-like shape with a little bone handle.",
     title: "THE INFATUATION",
+  },
+  {
+    logos: [
+      { alt: "DO512", src: "/images/do512.png" },
+      { alt: "The Infatuation", src: "/images/the-infatuation.png" },
+      { alt: "Keep Austin Eatin", src: "/images/keep-austin-eatin.png" },
+    ],
+    text: "Tommy Want Wingy serves up some of the most craveable wings in Austin. Their signature lollipop-style drumettes are perfectly crispy, sauced to order, and easy to eat—ideal for sharing with friends or devouring solo. Whether you’re a spice lover or prefer something milder, there’s a flavor for everyone. Don’t miss them at your next food truck crawl. – DO512",
+    title: "DO512",
   },
   // Add more reviews as needed
 ];
@@ -37,7 +46,7 @@ export function HomeReviews() {
   return (
     <section
       id="reviews"
-      className="relative flex flex-col items-center justify-center w-full min-h-[60vh] py-16 md:py-28 bg-background/90 text-primary overflow-hidden"
+      className="relative flex flex-col items-center justify-center w-full min-h-[60vh] py-8 md:py-12 bg-background/90 text-primary overflow-hidden px-4"
     >
       <Carousel
         className="w-full max-w-2xl mx-auto"

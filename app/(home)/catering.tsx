@@ -19,7 +19,7 @@ export function HomeCatering() {
         <span className="text-base md:text-lg text-orange-500 font-medium mb-4 tracking-widest uppercase text-center">
           CATERING
         </span>
-        <h2 className="font-accent text-3xl md:text-5xl font-extrabold text-white text-center mb-6 md:mb-8 leading-tight md:leading-tight">
+        <h2 className="font-accent text-3xl md:text-5xl font-extrabold text-primary text-center mb-6 md:mb-8 leading-tight md:leading-tight">
           LOOKING TO CATER YOUR NEXT EVENT? WE&apos;VE GOT YOU COVERED!
         </h2>
         <p className="text-muted-foreground text-center mb-8 max-w-lg">
@@ -74,7 +74,7 @@ export function HomeCatering() {
           </div>
           <button
             type="submit"
-            className="mt-2 rounded-full px-10 py-3 font-bold text-white text-base bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="mt-2 rounded-full px-10 py-3 font-bold text-primary text-base bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
           >
             SEND INQUIRY
           </button>
