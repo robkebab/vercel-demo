@@ -5,10 +5,12 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "db:client": "prisma studio",
     "db:create-migration": "prisma migrate dev --create-only",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed -- --environment development",
     "check-format": "prettier --check .",
     "check-lint": "next lint",
     "check-types": "tsc --noEmit",
@@ -88,5 +90,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "prisma": {
+    "seed": "tsx lib/db/seed.ts"
   }
 }
