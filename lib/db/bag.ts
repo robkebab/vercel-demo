@@ -134,3 +134,18 @@ function mergeCartItems(...cartItems: CartItem[][]) {
     return acc;
   }, [] as CartItem[]);
 }
+
+export async function getBagCount(): Promise<number> {
+  const session = await auth();
+  const userId = session?.user?.id;
+  const bagId = (await cookies()).get("bagId")?.value;
+  if (!userId && !bagId) return 0;
+
+  const relation = userId ? { cart: { userId } } : { id: bagId };
+
+  return prisma.cartItem
+    .findMany({
+      where: relation,
+    })
+    .then((items) => items.reduce((acc, item) => acc + item.quantity, 0));
+}
