@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
-// import { User } from "./lib/db/prisma/generated-client";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import { prisma } from "./lib/db/prisma/client";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 
 // async function getUser(email: string): Promise<User | null> {
 //   try {
@@ -18,6 +19,7 @@ import Google from "next-auth/providers/google";
 // }
 
 export const { auth, signIn, signOut, handlers } = NextAuth({
+  adapter: PrismaAdapter(prisma),
   basePath: "/auth",
   providers: [GitHub, Google],
 });
