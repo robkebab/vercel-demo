@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ProductCategory } from "@/lib/db/prisma/generated-client";
+import { ProductCategory } from "@db/prisma/client";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const parseCategoryPath = (categoryName: string) => {

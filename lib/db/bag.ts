@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { cookies } from "next/headers";
-import { prisma } from "./prisma/client";
-import { CartItem, Prisma } from "./prisma/generated-client";
+import { prisma } from "./prisma/prisma";
+import { CartItem, Prisma } from "@db/prisma/client";
 
 export type OrderBagWithItems = Prisma.CartGetPayload<{
   include: {

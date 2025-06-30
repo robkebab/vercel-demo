@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createBag, getBag } from "../../../../lib/db/bag";
-import { prisma } from "../../../../lib/db/prisma/client";
+import { prisma } from "../../../../lib/db/prisma/prisma";
 
 export async function addMenuItemAction(productId: string) {
   const bag = (await getBag()) ?? (await createBag());
