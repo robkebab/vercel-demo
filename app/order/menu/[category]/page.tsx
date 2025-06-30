@@ -4,7 +4,7 @@ import {
 } from "@/app/order/menu/[category]/menu-items";
 import { Sidenav } from "@/app/order/menu/[category]/sidenav";
 import { Suspense } from "react";
-import { prisma } from "@/lib/db/prisma/client";
+import { prisma } from "@/lib/db/prisma/prisma";
 
 interface IOrderMenuPageProps {
   params: Promise<{ category: string }>;

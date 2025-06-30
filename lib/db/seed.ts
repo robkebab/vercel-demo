@@ -1,4 +1,4 @@
-import { prisma } from "./prisma/client";
+import { prisma } from "./prisma/prisma";
 
 async function main() {
   console.log("seeding product categories...");

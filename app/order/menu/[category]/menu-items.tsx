@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AddToBagButton from "./add-to-bag";
 import Image from "next/image";
-import { Product } from "@/lib/db/prisma/generated-client";
+import { Product } from "@db/prisma/client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { prisma } from "@/lib/db/prisma/client";
+import { prisma } from "@/lib/db/prisma/prisma";
 import { addMenuItemAction } from "@/app/order/menu/[category]/actions";
 
 interface MenuItemsProps {

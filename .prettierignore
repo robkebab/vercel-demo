@@ -6,7 +6,6 @@
 .turbo/*
 build
 coverage
-lib/db/prisma/generated-client
-lib/db/prisma/migrations
+lib/db/prisma/*
 node_modules/*
 pnpm-lock.yaml
