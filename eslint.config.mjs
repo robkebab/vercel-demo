@@ -13,10 +13,6 @@ const eslintConfig = [
   ...compat.config({
     extends: ["next/core-web-vitals", "next/typescript", "prettier"],
     ignorePatterns: ["lib/db/prisma/**"],
-    rules: {
-      "sort-imports": "error",
-      "sort-keys": "error",
-    },
   }),
 ];
 
