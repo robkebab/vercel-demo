@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Icon } from "../ui/icon";
 import Image from "next/image";
+import { SignIn } from "../auth/auth-buttons";
 
 export function Navbar() {
   return (
@@ -42,9 +43,7 @@ export function Navbar() {
         </span>
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
-        <Button className="hidden md:inline-flex rounded-full px-6">
-          Sign In
-        </Button>
+        <SignIn />
         <Button
           variant="default"
           className="rounded-full px-4 md:px-6 flex items-center gap-2 bg-primary text-white"
