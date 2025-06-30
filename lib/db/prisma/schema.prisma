@@ -1,0 +1,66 @@
+// setup
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "./generated-client"
+}
+
+// models
+model Cart {
+    id String @id @default(uuid())
+
+    items  CartItem[]
+    user   User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model CartItem {
+    id String @id @default(uuid())
+
+    cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+    cartId    String
+    product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId String
+    quantity  Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Product {
+    id String @id @default(uuid())
+
+    cartItems   CartItem[]
+    description String?
+    name        String
+    price       Int
+    imageUrl    String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model User {
+    id String @id @default(uuid())
+
+    email String  @unique
+    carts Cart[]
+    name  String?
+    role  Role    @default(USER)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+//types
+enum Role {
+    USER
+    ADMIN
+}
