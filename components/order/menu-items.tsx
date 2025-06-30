@@ -1,11 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { type MenuItem, menuItems } from "@/lib/data/menu-items";
-import { Button } from "@/components/ui/button";
+import AddToBagButton from "./add-to-bag";
 import Image from "next/image";
+import { Product } from "@/lib/db/prisma/generated-client";
 import { Skeleton } from "@/components/ui/skeleton";
+import { prisma } from "@/lib/db/prisma/client";
+import { addMenuItemAction } from "@/lib/actions/order";
 
 interface MenuItemsProps {
-  category: string;
+  categoryId: string;
 }
 
 function MenuItemSkeleton() {
@@ -26,7 +28,8 @@ function MenuItemSkeleton() {
   );
 }
 
-function MenuItem({ item }: { item: MenuItem }) {
+function MenuItem({ item }: { item: Product }) {
+  const priceInDollars = item.price / 100;
   return (
     <Card
       key={item.id}
@@ -34,7 +37,7 @@ function MenuItem({ item }: { item: MenuItem }) {
     >
       <CardHeader className="w-32 h-32 relative">
         <Image
-          src={item.image}
+          src="/images/wings.png"
           alt={item.name}
           fill
           className="object-contain rounded-lg"
@@ -48,9 +51,12 @@ function MenuItem({ item }: { item: MenuItem }) {
       <CardContent className="text-center w-full">
         <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
         <div className="text-base font-bold text-primary mb-4">
-          ${item.price.toFixed(2)}
+          ${priceInDollars.toFixed(2)}
         </div>
-        <Button className="w-full mt-auto">Add to order</Button>
+        <AddToBagButton
+          productId={item.id}
+          addMenuItemAction={addMenuItemAction}
+        />
       </CardContent>
     </Card>
   );
@@ -66,8 +72,12 @@ export function MenuItemsSkeleton() {
   );
 }
 
-export async function MenuItems({ category }: MenuItemsProps) {
-  const items = menuItems.filter((item) => item.category === category);
+export async function MenuItems({ categoryId }: MenuItemsProps) {
+  const items = await prisma.product.findMany({
+    where: {
+      categoryId,
+    },
+  });
 
   if (items.length === 0) {
     return (
