@@ -11,6 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import Image from "next/image";
+import { Icon } from "@/components/ui/icon";
+import {
+  decrementItemQuantityAction,
+  incrementItemQuantityAction,
+} from "./actions";
 
 export default async function BagPage() {
   const bag = await getBag();
@@ -35,60 +40,89 @@ export default async function BagPage() {
           <CardContent>
             {bag && bag.items.length > 0 ? (
               <ul className="flex flex-col gap-6">
-                {bag.items.map((item) => (
-                  <li
-                    key={item.id}
-                    className="flex gap-4 items-center border-b last:border-b-0 pb-4 last:pb-0"
-                  >
-                    <div className="w-24 h-24 relative flex-shrink-0">
-                      <Image
-                        src={item.product.imageUrl || "/images/logo.png"}
-                        alt={item.product.name}
-                        fill
-                        className="object-contain rounded-lg bg-muted"
-                        sizes="96px"
-                        priority={false}
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-lg text-foreground">
-                        {item.product.name}
+                {bag.items
+                  .sort((a, b) => (a.product.name > b.product.name ? 1 : -1))
+                  .map((item) => (
+                    <li
+                      key={item.id}
+                      className="flex gap-4 items-center border-b last:border-b-0 pb-4 last:pb-0"
+                    >
+                      <div className="w-24 h-24 relative flex-shrink-0">
+                        <Image
+                          src={"/images/wings.png"}
+                          alt={item.product.name}
+                          fill
+                          className="object-contain rounded-lg bg-muted"
+                          sizes="96px"
+                          priority={false}
+                        />
                       </div>
-                      <div className="text-sm text-muted-foreground line-clamp-2">
-                        {item.product.description}
+                      <div className="flex-1 min-w-0">
+                        <div className="font-semibold text-lg text-foreground">
+                          {item.product.name}
+                        </div>
+                        <div className="text-sm text-muted-foreground line-clamp-2">
+                          {item.product.description}
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-1">
+                          Qty: {item.quantity}
+                        </div>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-1">
-                        Qty: {item.quantity}
+                      <div className="flex flex-col items-end gap-2 min-w-[80px]">
+                        <div className="font-bold text-base text-foreground">
+                          $
+                          {((item.product.price * item.quantity) / 100).toFixed(
+                            2,
+                          )}
+                        </div>
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            className="text-destructive px-2 py-1 h-7"
+                            disabled
+                          >
+                            Delete
+                          </Button>
+                          <div className="flex items-center border rounded-md text-primary">
+                            <form
+                              action={decrementItemQuantityAction.bind(
+                                null,
+                                item.productId,
+                              )}
+                            >
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="px-2 py-1 h-7 rounded-r-none border-r cursor-pointer"
+                                type="submit"
+                              >
+                                <Icon.Minus className="w-4 h-4 text-primary" />
+                              </Button>
+                            </form>
+                            <span className="px-3 py-1 text-sm font-medium min-w-[2rem] text-center">
+                              {item.quantity}
+                            </span>
+                            <form
+                              action={incrementItemQuantityAction.bind(
+                                null,
+                                item.productId,
+                              )}
+                            >
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                className="px-2 py-1 h-7 rounded-l-none border-l cursor-pointer"
+                                type="submit"
+                              >
+                                <Icon.Plus className="w-4 h-4 text-primary" />
+                              </Button>
+                            </form>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col items-end gap-2 min-w-[80px]">
-                      <div className="font-bold text-base text-foreground">
-                        $
-                        {((item.product.price * item.quantity) / 100).toFixed(
-                          2,
-                        )}
-                      </div>
-                      <div className="flex gap-2">
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          className="text-destructive px-2 py-1 h-7"
-                          disabled
-                        >
-                          Delete
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="px-2 py-1 h-7"
-                          disabled
-                        >
-                          Edit
-                        </Button>
-                      </div>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
             ) : (
               <div className="text-center text-muted-foreground py-8">

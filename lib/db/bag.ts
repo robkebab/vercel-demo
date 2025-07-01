@@ -151,3 +151,61 @@ export async function getBagCount(): Promise<number> {
     })
     .then((items) => items.reduce((acc, item) => acc + item.quantity, 0));
 }
+
+export async function adjustItemQuantity({
+  productId,
+  adjustBy,
+}: {
+  productId: string;
+  adjustBy: number;
+}): Promise<void> {
+  if (adjustBy === 0) return;
+  const isIncrement = adjustBy > 0;
+
+  const bag = (await getBag()) ?? (await createBag());
+
+  const existingItem = bag.items.find((item) => item.productId === productId);
+
+  const existingQuantity = existingItem?.quantity ?? 0;
+  const safeDecrement = Math.max(0, existingQuantity - Math.abs(adjustBy));
+
+  const adjustment = isIncrement
+    ? { increment: adjustBy }
+    : { decrement: safeDecrement };
+
+  if (existingItem) {
+    await prisma.cartItem.update({
+      where: { id: existingItem.id },
+      data: { quantity: adjustment },
+    });
+  } else if (isIncrement) {
+    await prisma.cartItem.create({
+      data: { cartId: bag.id, productId, quantity: 1 },
+    });
+  }
+}
+
+export async function incrementItemQuantity(productId: string): Promise<void> {
+  await adjustItemQuantity({ productId, adjustBy: 1 });
+}
+
+export async function decrementItemQuantity(productId: string): Promise<void> {
+  await adjustItemQuantity({ productId, adjustBy: -1 });
+}
+
+export async function removeItemFromBag(productId: string): Promise<boolean> {
+  const bag = await getBag();
+
+  if (!bag) return false;
+
+  const item = bag.items.find((item) => item.productId === productId);
+  if (!item) return false;
+
+  await prisma.cartItem.delete({
+    where: {
+      id: item.id,
+    },
+  });
+
+  return true;
+}
