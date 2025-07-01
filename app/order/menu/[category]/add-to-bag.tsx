@@ -17,7 +17,8 @@ export default function AddToBagButton({
 
   return (
     <Button
-      className="w-full mt-auto"
+      variant="ghost"
+      className="w-full mt-auto text-primary hover:text-primary/80 bg-foreground/10"
       onClick={() => {
         setIsAdded(false);
         startTransition(async () => {

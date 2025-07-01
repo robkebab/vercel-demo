@@ -27,6 +27,8 @@ export async function createBag(): Promise<OrderBag> {
     data: cartAssociation,
   });
 
+  (await cookies()).set("bagId", newBag.id);
+
   return {
     ...newBag,
     items: [],
@@ -117,7 +119,7 @@ export async function mergeCarts(userId: string) {
       where: { id: localBag.id },
     });
 
-    (await cookies()).delete("bagId");
+    (await cookies()).set("bagId", "");
   });
 }
 
@@ -141,7 +143,7 @@ export async function getBagCount(): Promise<number> {
   const bagId = (await cookies()).get("bagId")?.value;
   if (!userId && !bagId) return 0;
 
-  const relation = userId ? { cart: { userId } } : { id: bagId };
+  const relation = userId ? { cart: { userId } } : { cart: { id: bagId } };
 
   return prisma.cartItem
     .findMany({

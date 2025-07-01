@@ -3,6 +3,7 @@ import { Icon } from "../../../../components/ui/icon";
 import { Badge } from "../../../../components/ui/badge";
 import { getBagCount } from "@/lib/db/bag";
 import { Suspense } from "react";
+import Link from "next/link";
 
 async function BagCount() {
   const count = await getBagCount();
@@ -22,17 +23,20 @@ async function BagCount() {
 export function YourOrderButton() {
   return (
     <Button
-      variant="default"
-      className="rounded-full px-4 md:px-6 flex items-center gap-2 bg-primary text-primary-foreground relative"
+      variant="gradient"
+      className="rounded-full px-4 md:px-6 flex items-center gap-2 font-semibold text-primary relative"
       aria-label="Your Order"
+      asChild
     >
-      <span className="relative">
-        <Icon.ShoppingBag />
-        <Suspense fallback={null}>
-          <BagCount />
-        </Suspense>
-      </span>
-      <span className="hidden md:inline">Your Order</span>
+      <Link href="/order/bag">
+        <span className="relative">
+          <Icon.ShoppingBag />
+          <Suspense fallback={null}>
+            <BagCount />
+          </Suspense>
+        </span>
+        <span className="hidden md:inline">Your Order</span>
+      </Link>
     </Button>
   );
 }
