@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import React from "react";
 
 async function submitCatering(formData: FormData) {
@@ -28,12 +30,12 @@ export function HomeCatering() {
         </p>
         <form action={submitCatering} className="w-full flex flex-col gap-6">
           <div>
-            <label
+            <Label
               htmlFor="name"
               className="block text-xs font-semibold mb-2 uppercase tracking-wide text-muted-foreground"
             >
               YOUR NAME
-            </label>
+            </Label>
             <Input
               id="name"
               name="name"
@@ -43,12 +45,12 @@ export function HomeCatering() {
             />
           </div>
           <div>
-            <label
+            <Label
               htmlFor="email"
               className="block text-xs font-semibold mb-2 uppercase tracking-wide text-muted-foreground"
             >
               YOUR EMAIL
-            </label>
+            </Label>
             <Input
               id="email"
               name="email"
@@ -58,12 +60,12 @@ export function HomeCatering() {
             />
           </div>
           <div>
-            <label
+            <Label
               htmlFor="message"
               className="block text-xs font-semibold mb-2 uppercase tracking-wide text-muted-foreground"
             >
               MESSAGE
-            </label>
+            </Label>
             <textarea
               id="message"
               name="message"
@@ -72,12 +74,13 @@ export function HomeCatering() {
               className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-base text-primary shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] placeholder:text-muted-foreground"
             />
           </div>
-          <button
+          <Button
+            variant="gradient"
             type="submit"
-            className="mt-2 rounded-full px-10 py-3 font-bold text-primary text-base bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="mt-2 rounded-full px-10 py-3 font-bold text-primary text-base shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
           >
             SEND INQUIRY
-          </button>
+          </Button>
         </form>
       </div>
     </section>
