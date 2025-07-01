@@ -23,8 +23,8 @@ import Link from "next/link";
 export default async function BagPage() {
   const bag = await getBag();
   const taxRate = 0.0825; // Example tax rate
-  const estimatedTax = bag ? bag.subtotal * taxRate : 0;
-  const subtotal = bag ? bag.subtotal : 0;
+  const estimatedTax = bag ? (bag.subtotal / 100) * taxRate : 0;
+  const subtotal = bag ? bag.subtotal / 100 : 0;
   const totalItems = bag ? bag.size : 0;
 
   return (
@@ -172,7 +172,7 @@ export default async function BagPage() {
               </div>
               <div className="flex justify-between font-semibold">
                 <span>Subtotal</span>
-                <span>${(subtotal / 100).toFixed(2)}</span>
+                <span>${subtotal.toFixed(2)}</span>
               </div>
             </div>
             <Separator className="my-4" />
