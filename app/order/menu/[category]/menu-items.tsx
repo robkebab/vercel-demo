@@ -3,8 +3,8 @@ import AddToBagButton from "./add-to-bag";
 import Image from "next/image";
 import { Product } from "@db/prisma/client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { prisma } from "@/lib/db/prisma/prisma";
 import { addMenuItemAction } from "@/app/order/menu/[category]/actions";
+import { getProductsByCategory } from "@db/product";
 
 interface MenuItemsProps {
   categoryId: string;
@@ -73,11 +73,7 @@ export function MenuItemsSkeleton() {
 }
 
 export async function MenuItems({ categoryId }: MenuItemsProps) {
-  const items = await prisma.product.findMany({
-    where: {
-      categoryId,
-    },
-  });
+  const items = await getProductsByCategory(categoryId);
 
   if (items.length === 0) {
     return (
