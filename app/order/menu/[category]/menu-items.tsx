@@ -3,7 +3,6 @@ import AddToBagButton from "./add-to-bag";
 import Image from "next/image";
 import { Product } from "@db/prisma/client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { addMenuItemAction } from "@/app/order/menu/[category]/actions";
 import { getProductsByCategory } from "@db/product";
 
 interface MenuItemsProps {
@@ -53,10 +52,7 @@ function MenuItem({ item }: { item: Product }) {
         <div className="text-base font-bold text-primary mb-4">
           ${priceInDollars.toFixed(2)}
         </div>
-        <AddToBagButton
-          productId={item.id}
-          addMenuItemAction={addMenuItemAction}
-        />
+        <AddToBagButton productId={item.id} />
       </CardContent>
     </Card>
   );
