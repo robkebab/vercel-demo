@@ -90,7 +90,7 @@ export async function mergeCarts(userId: string) {
     if (userBag) {
       const mergedItems = mergeCartItems(localBag.items, userBag.items);
       await tx.cartItem.deleteMany({
-        where: { cartId: localBag.id },
+        where: { cartId: userBag.id },
       });
       await tx.cartItem.createMany({
         data: mergedItems.map(({ productId, quantity }) => ({
