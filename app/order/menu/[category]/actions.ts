@@ -6,5 +6,5 @@ import { incrementItemQuantity } from "@db/bag";
 export async function addMenuItemAction(productId: string) {
   await incrementItemQuantity(productId);
 
-  revalidatePath("/order/menu/[category]");
+  revalidatePath("/order/menu/[category]", "layout");
 }
