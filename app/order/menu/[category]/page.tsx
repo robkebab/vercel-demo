@@ -4,7 +4,7 @@ import {
 } from "@/app/order/menu/[category]/menu-items";
 import { Sidenav } from "@/app/order/menu/[category]/sidenav";
 import { Suspense } from "react";
-import { prisma } from "@/lib/db/prisma/prisma";
+import { listCategories } from "@/lib/db/category";
 
 interface IOrderMenuPageProps {
   params: Promise<{ category: string }>;
@@ -20,7 +20,7 @@ const parseCategoryName = (categoryPath: string) => {
 
 export default async function OrderMenuPage({ params }: IOrderMenuPageProps) {
   const { category } = await params;
-  const categories = await prisma.productCategory.findMany();
+  const categories = await listCategories();
   const activeCategoryId =
     categories.find((cat) => parseCategoryName(category) === cat.name)?.id ||
     "";
