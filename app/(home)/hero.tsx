@@ -7,31 +7,25 @@ const HERO_IMAGES = [
     alt: "Wings",
     className:
       "hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-56 h-56 rounded-full object-cover border-4 border-background shadow-xl",
-    src: "/images/wings.png",
+    src: "/images/hero/desktop-wings.png",
   },
   {
     alt: "Fries",
     className:
       "hidden md:block absolute left-8 bottom-8 w-36 h-36 rounded-full object-cover border-4 border-background shadow-lg",
-    src: "/images/fries.png",
+    src: "/images/hero/desktop-wings-2.png",
   },
   {
-    alt: "Combo",
+    alt: "Tots",
     className:
       "hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full object-cover border-4 border-background shadow-xl",
-    src: "/images/combo.png",
+    src: "/images/hero/mobile-tots.png",
   },
   {
     alt: "Beer and wings",
     className:
       "hidden md:block absolute right-8 bottom-8 w-32 h-32 rounded-full object-cover border-4 border-background shadow-lg",
-    src: "/images/beer-n-wings.png",
-  },
-  {
-    alt: "Sauce",
-    className:
-      "hidden md:block absolute left-1/4 top-8 w-24 h-24 rounded-full object-cover border-4 border-background shadow-md",
-    src: "/images/sauce.png",
+    src: "/images/hero/desktop-beer-and-wings.png",
   },
   // Mobile images
   {

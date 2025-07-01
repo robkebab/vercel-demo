@@ -8,7 +8,7 @@ async function main() {
         name: "Combos",
       },
       {
-        name: "Special offers",
+        name: "5pc Wings",
       },
       {
         name: "4pc Boneless Wings",
@@ -25,31 +25,28 @@ async function main() {
   const combosId = categories.find(
     (category) => category.name === "Combos",
   )?.id;
-  const specialOffersId = categories.find(
-    (category) => category.name === "Special offers",
+  const fivePcWingsId = categories.find(
+    (category) => category.name === "5pc Wings",
   )?.id;
-  //   const fourPcBonelessWingsId = categories.find((category) => category.name === "4pc Boneless Wings")?.id;
-  //   const friesAndTotsId = categories.find((category) => category.name === "Fries & Tots")?.id;
-  //   const saucesId = categories.find((category) => category.name === "Sauces")?.id;
+  const fourPcBonelessWingsId = categories.find(
+    (category) => category.name === "4pc Boneless Wings",
+  )?.id;
+  const friesAndTotsId = categories.find(
+    (category) => category.name === "Fries & Tots",
+  )?.id;
+  const saucesId = categories.find(
+    (category) => category.name === "Sauces",
+  )?.id;
 
+  const imgRoot = "/images/menu";
   console.log("Seeding products...");
   await prisma.product.createMany({
     data: [
       {
-        categoryId: specialOffersId,
-        description:
-          "Crispy, golden-fried lollipop wings tossed in your favorite flavor or served naked.",
-        imageUrl:
-          "https://cdn.outbites.com/p/8c509e9c-7326-4d6b-9838-b0ab6b54b62c.png",
-        name: "$1 Wings",
-        price: 500,
-      },
-      {
         categoryId: combosId,
         description:
           "Served with a side of fries or tots. Comes with dipping sauce.",
-        imageUrl:
-          "https://cdn.outbites.com/p/41440829-022b-4fe5-b6ea-e8e722d95b5e.jpg",
+        imageUrl: `${imgRoot}/4-tender-combo.png`,
         name: "4pc Tender Combo",
         price: 1675,
       },
@@ -57,8 +54,7 @@ async function main() {
         categoryId: combosId,
         description:
           "Served with a side of fries or tots. Comes with dipping sauce.",
-        imageUrl:
-          "https://cdn.outbites.com/p/41440829-022b-4fe5-b6ea-e8e722d95b5e.jpg",
+        imageUrl: `${imgRoot}/5-wing-combo.png`,
         name: "5pc Wing Combo",
         price: 1568,
       },
@@ -66,19 +62,222 @@ async function main() {
         categoryId: combosId,
         description:
           "Served with a side of fries or tots. Comes with dipping sauce.",
-        imageUrl:
-          "https://cdn.outbites.com/p/6c2845cb-24f1-44d2-bb36-42d67a034dc2.jpg",
+        imageUrl: `${imgRoot}/10-wing-combo.png`,
         name: "10pc Wing Combo",
         price: 2565,
       },
       {
         categoryId: combosId,
         description:
-          "Comes with 10 x 5pc wings, 5 x 4pc tenders, 7 x sides, and 15 x dipping sauces",
-        imageUrl:
-          "https://cdn.outbites.com/p/79b09158-b710-4f2e-9434-7f045c228094.jpg",
+          "Comes with 10 × 5pc wings, 5 × 4pc tenders, 7 × sides, and 15 × dipping sauces.",
+        imageUrl: `${imgRoot}/lay-off-me.png`,
         name: "Lay Off Me, I'm Starving!",
         price: 19071,
+      },
+      {
+        categoryId: fivePcWingsId,
+        description: "Traditional fried flavor w/ no sauce. Salt & pepper.",
+        imageUrl: `${imgRoot}/5-naked.png`,
+        name: "Naked - 5pc",
+        price: 950,
+      },
+      // {
+      //   categoryId: fivePcWingsId,
+      //   description: "Garlic butter and Parmesan cheese.",
+      //   imageUrl: `${imgRoot}/5-garlic-parmesan.png`,
+      //   name: "Garlic Parmesan - 5pc",
+      //   price: 950,
+      // },
+      {
+        categoryId: fivePcWingsId,
+        description: "Fresh lemon juice, salt, and pepper.",
+        imageUrl: `${imgRoot}/5-lemon-pepper.png`,
+        name: "Lemon Pepper - 5pc",
+        price: 950,
+      },
+      // {
+      //   categoryId: fivePcWingsId,
+      //   description: "Fresh lime juice and Tajín seasoning.",
+      //   imageUrl: `${imgRoot}/5-chile-limon.png`,
+      //   name: "Chile Limón - 5pc",
+      //   price: 950,
+      // },
+      {
+        categoryId: fivePcWingsId,
+        description: "Mostly sweet but with a kick 🔥",
+        imageUrl: `${imgRoot}/5-sweet-chili.png`,
+        name: "Sweet Chili - 5pc",
+        price: 950,
+      },
+      // {
+      //   categoryId: fivePcWingsId,
+      //   description: "Sriracha based sauce. 50/50 hot and sweet 🔥🔥",
+      //   imageUrl: `${imgRoot}/5-og.png`,
+      //   name: "OG - 5pc",
+      //   price: 950,
+      // },
+      {
+        categoryId: fivePcWingsId,
+        description: "Sriracha based sauce with pineapple blended in 🔥🔥🔥",
+        imageUrl: `${imgRoot}/5-spicy-pineapple.png`,
+        name: "Spicy Pineapple - 5pc",
+        price: 950,
+      },
+      {
+        categoryId: fivePcWingsId,
+        description: "Dry rub, hot, and salty flavor 🔥🔥🔥🔥🔥",
+        imageUrl: `${imgRoot}/5-ranch-on-fire.png`,
+        name: "Ranch On Fire - 5pc",
+        price: 950,
+      },
+      {
+        categoryId: fivePcWingsId,
+        description: "Traditional flavor but on the hot side 🔥🔥🔥🔥🔥",
+        imageUrl: `${imgRoot}/5-buffalo.png`,
+        name: "Buffalo - 5pc",
+        price: 950,
+      },
+      {
+        categoryId: fivePcWingsId,
+        description: "Warning: Painfully hot! 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",
+        imageUrl: `${imgRoot}/5-holy-schnikes.png`,
+        name: "Holy Schnikes - 5pc",
+        price: 950,
+      },
+      {
+        categoryId: fourPcBonelessWingsId,
+        description: "Traditional fried flavor w/ no sauce",
+        imageUrl: `${imgRoot}/4-naked.png`,
+        name: "Naked - 4pc Boneless Wings",
+        price: 975,
+      },
+      // {
+      //   categoryId: fourPcBonelessWingsId,
+      //   description: "Garlic butter and Parmesan cheese",
+      //   imageUrl: `${imgRoot}/4-garlic-parmesan.png`,
+      //   name: "Garlic Parmesan - 4pc Boneless Wings",
+      //   price: 975,
+      // },
+      {
+        categoryId: fourPcBonelessWingsId,
+        description: "Fresh lemon juice, salt, and pepper",
+        imageUrl: `${imgRoot}/4-lemon-pepper.png`,
+        name: "Lemon Pepper - 4pc Boneless Wings",
+        price: 975,
+      },
+      // {
+      //   categoryId: fourPcBonelessWingsId,
+      //   description: "Fresh lime juice and Tajín seasoning",
+      //   imageUrl: `${imgRoot}/4-chile-limon.png`,
+      //   name: "Chile Limón - 4pc Boneless Wings",
+      //   price: 975,
+      // },
+      {
+        categoryId: fourPcBonelessWingsId,
+        description: "Mostly sweet but with a kick 🔥",
+        imageUrl: `${imgRoot}/4-sweet-chili.png`,
+        name: "Sweet Chili - 4pc Boneless Wings",
+        price: 975,
+      },
+      // {
+      //   categoryId: fourPcBonelessWingsId,
+      //   description: "Sriracha based sauce with pineapple blended in 🔥🔥🔥",
+      //   imageUrl: `${imgRoot}/4-spicy-pineapple.png`,
+      //   name: "Spicy Pineapple - 4pc Boneless Wings",
+      //   price: 975,
+      // },
+      {
+        categoryId: fourPcBonelessWingsId,
+        description: "Sriracha based sauce. 50/50 hot and sweet 🔥🔥",
+        imageUrl: `${imgRoot}/4-og.png`,
+        name: "OG - 4pc Boneless Wings",
+        price: 975,
+      },
+      // {
+      //   categoryId: fourPcBonelessWingsId,
+      //   description: "Dry rub, hot, and salty flavor 🔥🔥🔥🔥🔥",
+      //   imageUrl: `${imgRoot}/4-ranch-on-fire.png`,
+      //   name: "Ranch On Fire - 4pc Boneless Wings",
+      //   price: 975,
+      // },
+      {
+        categoryId: fourPcBonelessWingsId,
+        description: "Traditional Flavor but on the hot side 🔥🔥🔥🔥🔥",
+        imageUrl: `${imgRoot}/4-buffalo.png`,
+        name: "Buffalo - 4pc Boneless Wings",
+        price: 975,
+      },
+      // {
+      //   categoryId: fourPcBonelessWingsId,
+      //   description: "Warning: Painfully Hot! 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",
+      //   imageUrl: `${imgRoot}/4-holy-schnikes.png`,
+      //   name: "Holy Schnikes - 4pc Boneless Wings",
+      //   price: 975,
+      // },
+      {
+        categoryId: friesAndTotsId,
+        description: "Crispy, Grated and deep-fried potatoes",
+        imageUrl: `${imgRoot}/tots.png`,
+        name: "Tots",
+        price: 775,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description: "Seasoned French Fries",
+        imageUrl: `${imgRoot}/fries.png`,
+        name: "French Fries",
+        price: 800,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description: "Garlic butter and Parmesan cheese",
+        imageUrl: `${imgRoot}/tots.png`,
+        name: "Garlic Tots",
+        price: 875,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description: "Dry rub, hot, and salty flavor 🔥🔥🔥",
+        imageUrl: `${imgRoot}/tots.png`,
+        name: "Ranch On Fire Tots",
+        price: 875,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description: "Garlic butter and Parmesan cheese",
+        imageUrl: `${imgRoot}/fries.png`,
+        name: "Garlic Fries",
+        price: 875,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description: "Dry rub, hot, and salty flavor 🔥🔥🔥",
+        imageUrl: `${imgRoot}/fries.png`,
+        name: "Ranch On Fire Fries",
+        price: 875,
+      },
+      {
+        categoryId: friesAndTotsId,
+        description:
+          "Crispy, tangy, thin-cut dill pickles coated in batter & deep fried.",
+        imageUrl: `${imgRoot}/pickle-fries.png`,
+        name: "Pickle Fries",
+        price: 800,
+      },
+      {
+        categoryId: saucesId,
+        description:
+          "creamy, tangy flavor with prominent notes of buttermilk, garlic, onion, and fresh herbs like dill and parsley",
+        imageUrl: `${imgRoot}/ranch.png`,
+        name: "Ranch",
+        price: 200,
+      },
+      {
+        categoryId: saucesId,
+        description: "sharp, tangy, and slightly salty",
+        imageUrl: `${imgRoot}/blue-cheese.png`,
+        name: "Bleu Cheese",
+        price: 200,
       },
     ],
   });
