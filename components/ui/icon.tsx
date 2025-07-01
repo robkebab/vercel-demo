@@ -11,6 +11,8 @@ import {
   Menu,
   Rocket,
   ShoppingBag,
+  Plus,
+  Minus,
 } from "lucide-react";
 
 export const Icon = {
@@ -26,6 +28,8 @@ export const Icon = {
   Menu,
   Rocket,
   ShoppingBag,
+  Plus,
+  Minus,
 } as const;
 
 export type Icon = (typeof Icon)[keyof typeof Icon];
