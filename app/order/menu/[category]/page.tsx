@@ -27,7 +27,7 @@ export default async function OrderMenuPage({ params }: IOrderMenuPageProps) {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex items-start justify-between max-w-screen-2xl mx-auto">
         <Sidenav categories={categories} activeId={activeCategoryId} />
         <Suspense fallback={<MenuItemsSkeleton />}>
           <MenuItems categoryId={activeCategoryId} />
