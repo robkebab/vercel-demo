@@ -210,3 +210,12 @@ export async function removeItemFromBag(productId: string): Promise<boolean> {
 
   return true;
 }
+
+export async function clearBag(): Promise<void> {
+  const bag = await getBag();
+  if (!bag) return;
+
+  await prisma.cartItem.deleteMany({
+    where: { cartId: bag.id },
+  });
+}
