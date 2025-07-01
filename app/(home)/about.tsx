@@ -4,7 +4,7 @@ export function HomeAbout() {
   return (
     <section
       id="about"
-      className="w-full flex flex-col items-center py-16 md:py-28 bg-background text-primary"
+      className="w-full flex flex-col items-center py-16 md:py-28 bg-background text-primary px-2 md:px-4"
     >
       <div className="w-full max-w-6xl flex flex-col md:flex-row gap-12 md:gap-20 items-center justify-center px-4">
         {/* Left: Headline */}

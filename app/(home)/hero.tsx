@@ -16,12 +16,6 @@ const HERO_IMAGES = [
     src: "/images/hero/desktop-wings-2.png",
   },
   {
-    alt: "Tots",
-    className:
-      "hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full object-cover border-4 border-background shadow-xl",
-    src: "/images/hero/mobile-tots.png",
-  },
-  {
     alt: "Beer and wings",
     className:
       "hidden md:block absolute right-8 bottom-8 w-32 h-32 rounded-full object-cover border-4 border-background shadow-lg",
@@ -89,7 +83,7 @@ export function HomeHero() {
         <Button
           variant="gradient"
           size="lg"
-          className="hidden md:inline-block rounded-full px-12 py-4 text-lg font-bold text-primary shadow-lg transition hover:scale-105"
+          className="hidden md:inline-block rounded-full px-12 text-lg font-bold text-primary shadow-lg transition hover:scale-105"
           asChild
         >
           <Link href="/order/menu/combos">ORDER ONLINE</Link>
