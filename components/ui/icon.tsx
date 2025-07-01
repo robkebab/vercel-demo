@@ -13,6 +13,9 @@ import {
   ShoppingBag,
   Plus,
   Minus,
+  Facebook,
+  Instagram,
+  Twitter,
 } from "lucide-react";
 
 export const Icon = {
@@ -30,6 +33,9 @@ export const Icon = {
   ShoppingBag,
   Plus,
   Minus,
+  Facebook,
+  Instagram,
+  Twitter,
 } as const;
 
 export type Icon = (typeof Icon)[keyof typeof Icon];

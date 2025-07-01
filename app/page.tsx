@@ -1,6 +1,6 @@
 import { HomeAbout } from "@/app/(home)/about";
 import { HomeCatering } from "@/app/(home)/catering";
-import { HomeFooter } from "@/app/(home)/footer";
+import { Footer } from "@/components/footer";
 import { HomeHero } from "@/app/(home)/hero";
 import { HomeLocations } from "@/app/(home)/locations";
 import { HomeNavbar } from "@/app/(home)/navbar";
@@ -17,7 +17,7 @@ export default async function Home() {
         <HomeReviews />
         <HomeCatering />
       </main>
-      <HomeFooter />
+      <Footer />
     </>
   );
 }
