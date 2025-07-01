@@ -13,7 +13,12 @@ interface IOrderMenuPageProps {
 const parseCategoryName = (categoryPath: string) => {
   const words = categoryPath.split("-");
   const result = words
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => {
+      if (word === "%26") {
+        return "&";
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
     .join(" ");
   return result;
 };

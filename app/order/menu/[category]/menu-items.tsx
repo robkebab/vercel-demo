@@ -37,7 +37,7 @@ function MenuItem({ item }: { item: Product }) {
     >
       <CardHeader className="w-32 h-32 relative">
         <Image
-          src="/images/wings.png"
+          src={item.imageUrl ?? "/images/wings.png"}
           alt={item.name}
           fill
           className="object-contain rounded-lg"

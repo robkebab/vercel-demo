@@ -52,7 +52,7 @@ export default async function BagPage() {
                     >
                       <div className="w-24 h-24 relative flex-shrink-0">
                         <Image
-                          src={"/images/wings.png"}
+                          src={item.product.imageUrl ?? "/images/wings.png"}
                           alt={item.product.name}
                           fill
                           className="object-contain rounded-lg bg-muted"
