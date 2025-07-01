@@ -167,7 +167,8 @@ export async function adjustItemQuantity({
   const existingItem = bag.items.find((item) => item.productId === productId);
 
   const existingQuantity = existingItem?.quantity ?? 0;
-  const safeDecrement = Math.max(0, existingQuantity - Math.abs(adjustBy));
+  // TODO: should really delete item or throw error if decrementing to 0
+  const safeDecrement = Math.min(Math.abs(adjustBy), existingQuantity - 1);
 
   const adjustment = isIncrement
     ? { increment: adjustBy }
