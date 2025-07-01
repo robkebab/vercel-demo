@@ -15,7 +15,10 @@ import { Icon } from "@/components/ui/icon";
 import {
   decrementItemQuantityAction,
   incrementItemQuantityAction,
+  removeItemFromBagAction,
+  clearBagAction,
 } from "./actions";
+import Link from "next/link";
 
 export default async function BagPage() {
   const bag = await getBag();
@@ -76,14 +79,20 @@ export default async function BagPage() {
                           )}
                         </div>
                         <div className="flex gap-2">
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            className="text-destructive px-2 py-1 h-7"
-                            disabled
+                          <form
+                            action={removeItemFromBagAction.bind(
+                              null,
+                              item.productId,
+                            )}
                           >
-                            Delete
-                          </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="text-destructive px-2 py-1 h-7"
+                            >
+                              Delete
+                            </Button>
+                          </form>
                           <div className="flex items-center border rounded-md text-primary">
                             <form
                               action={decrementItemQuantityAction.bind(
@@ -96,6 +105,7 @@ export default async function BagPage() {
                                 variant="ghost"
                                 className="px-2 py-1 h-7 rounded-r-none border-r cursor-pointer"
                                 type="submit"
+                                disabled={item.quantity === 1}
                               >
                                 <Icon.Minus className="w-4 h-4 text-primary" />
                               </Button>
@@ -131,13 +141,16 @@ export default async function BagPage() {
             )}
           </CardContent>
           <CardFooter className="flex flex-col items-start gap-4">
-            <Button
-              variant="outline"
-              className="text-destructive border-destructive hover:bg-destructive/10"
-              disabled
-            >
-              Cancel order
-            </Button>
+            <form action={clearBagAction}>
+              <Button
+                variant="outline"
+                className="text-destructive border-destructive hover:bg-destructive/10"
+                type="submit"
+                disabled={bag?.items.length === 0}
+              >
+                Cancel order
+              </Button>
+            </form>
             <div className="text-xs text-muted-foreground">
               Order must be picked up on the same day.
             </div>
@@ -164,8 +177,8 @@ export default async function BagPage() {
             </div>
             <Separator className="my-4" />
             <div className="flex gap-2">
-              <Button variant="outline" className="flex-1" disabled>
-                Add items
+              <Button variant="outline" className="flex-1 text-primary" asChild>
+                <Link href="/order/menu/combos">Add more</Link>
               </Button>
               <Button variant="gradient" className="flex-1" disabled>
                 Check out

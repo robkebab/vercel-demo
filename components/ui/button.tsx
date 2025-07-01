@@ -19,14 +19,15 @@ const buttonVariants = cva(
         sm: "h-9 px-3",
       },
       variant: {
-        default: "",
-        ghost: "bg-transparent hover:bg-accent hover:text-accent-foreground",
+        default: "cursor-pointer",
+        ghost:
+          "cursor-pointer bg-transparent hover:bg-accent hover:text-accent-foreground",
         gradient:
-          "bg-[linear-gradient(to_right,_#fc2547_0%,_#ff5a00_50%,_#fc2547_100%)] text-primary font-semibold hover:brightness-110",
+          "cursor-pointer bg-[linear-gradient(to_right,_#fc2547_0%,_#ff5a00_50%,_#fc2547_100%)] text-primary font-semibold hover:brightness-110",
         subtleGradient:
-          "bg-gradient-to-r from-pink-500 to-orange-400 text-primary rounded-full hover:brightness-110",
+          "cursor-pointer bg-gradient-to-r from-pink-500 to-orange-400 text-primary rounded-full hover:brightness-110",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "cursor-pointer border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       },
     },
   },

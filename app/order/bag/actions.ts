@@ -1,7 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { decrementItemQuantity, incrementItemQuantity } from "@db/bag";
+import {
+  clearBag,
+  decrementItemQuantity,
+  incrementItemQuantity,
+  removeItemFromBag,
+} from "@db/bag";
 
 export async function incrementItemQuantityAction(productId: string) {
   await incrementItemQuantity(productId);
@@ -11,6 +16,18 @@ export async function incrementItemQuantityAction(productId: string) {
 
 export async function decrementItemQuantityAction(productId: string) {
   await decrementItemQuantity(productId);
+
+  revalidatePath("/order/bag");
+}
+
+export async function removeItemFromBagAction(productId: string) {
+  await removeItemFromBag(productId);
+
+  revalidatePath("/order/bag");
+}
+
+export async function clearBagAction() {
+  await clearBag();
 
   revalidatePath("/order/bag");
 }
