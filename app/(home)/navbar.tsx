@@ -17,7 +17,7 @@ const NAV_ITEMS = [
 
 export function HomeNavbar() {
   return (
-    <nav className="w-full px-4 py-3 flex items-center justify-between bg-background border-b border-border">
+    <nav className="sticky top-0 z-50 w-full px-4 py-3 flex items-center justify-between bg-background border-b border-border">
       {/* Logo (left) */}
       <Link href="/" className="flex items-center z-20">
         <Image
@@ -30,7 +30,7 @@ export function HomeNavbar() {
         />
       </Link>
       {/* Desktop Nav */}
-      <ul className="hidden md:flex flex-1 justify-center gap-12 text-lg font-medium text-foreground">
+      <ul className="hidden md:flex flex-1 justify-center gap-12 text-lg font-medium text-primary">
         {NAV_ITEMS.map((item) => (
           <li key={item.label}>
             <JumpLink href={item.href}>{item.label}</JumpLink>
@@ -81,8 +81,11 @@ export function HomeNavbar() {
 
               <ul className="flex flex-col gap-6 text-2xl font-semibold text-foreground text-center">
                 {NAV_ITEMS.map((item) => (
-                  <li key={item.label}>
-                    <JumpLink href={item.href}>{item.label}</JumpLink>
+                  <li
+                    key={item.label}
+                    className="transition-colors hover:text-orange-500"
+                  >
+                    <Link href={item.href}>{item.label}</Link>
                   </li>
                 ))}
               </ul>

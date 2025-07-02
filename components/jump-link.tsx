@@ -39,7 +39,7 @@ export function JumpLink({
   return (
     <Link
       href={href}
-      className={cn("transition-colors hover:text-primary", className)}
+      className={cn("transition-colors hover:text-orange-500", className)}
       onClick={handleClick}
     >
       {children}
