@@ -10,7 +10,7 @@ export default function OrderLayout({ children }: OrderLayoutProps) {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className="min-h-[80vh]">{children}</main>
       <Footer />
     </>
   );
