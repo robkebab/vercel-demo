@@ -7,16 +7,17 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { JumpLink } from "@/components/jump-link";
 
 const NAV_ITEMS = [
-  { href: "/#browse", label: "Browse Food" },
+  { href: "/#locations", label: "Locations" },
   { href: "/#about", label: "About Us" },
   { href: "/#catering", label: "Catering" },
 ];
 
 export function HomeNavbar() {
   return (
-    <nav className="w-full px-4 py-3 flex items-center justify-between bg-background border-b border-border">
+    <nav className="sticky top-0 z-50 w-full px-4 py-3 flex items-center justify-between bg-background border-b border-border">
       {/* Logo (left) */}
       <Link href="/" className="flex items-center z-20">
         <Image
@@ -29,18 +30,16 @@ export function HomeNavbar() {
         />
       </Link>
       {/* Desktop Nav */}
-      <ul className="hidden md:flex flex-1 justify-center gap-12 text-lg font-medium text-foreground">
+      <ul className="hidden md:flex flex-1 justify-center gap-12 text-lg font-medium text-primary">
         {NAV_ITEMS.map((item) => (
           <li key={item.label}>
-            <Link
-              href={item.href}
-              className="transition-colors hover:text-primary"
-            >
-              {item.label}
-            </Link>
+            <JumpLink href={item.href}>{item.label}</JumpLink>
           </li>
         ))}
       </ul>
+      <Link href="/order/menu/combos">
+        <Button variant="gradient">Order</Button>
+      </Link>
       {/* Mobile Hamburger */}
       <div className="md:hidden z-20">
         <Sheet>
@@ -82,20 +81,18 @@ export function HomeNavbar() {
 
               <ul className="flex flex-col gap-6 text-2xl font-semibold text-foreground text-center">
                 {NAV_ITEMS.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="transition-colors hover:text-primary"
-                    >
-                      {item.label}
-                    </Link>
+                  <li
+                    key={item.label}
+                    className="transition-colors hover:text-orange-500"
+                  >
+                    <Link href={item.href}>{item.label}</Link>
                   </li>
                 ))}
               </ul>
 
-              <Button variant="gradient" asChild>
-                <Link href="/order/menu/combos">Order Now</Link>
-              </Button>
+              <Link href="/order/menu/combos">
+                <Button variant="gradient">Order Now</Button>
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
