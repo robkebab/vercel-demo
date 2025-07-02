@@ -24,6 +24,7 @@ const buttonVariants = cva(
           "cursor-pointer bg-transparent hover:bg-accent hover:text-accent-foreground",
         gradient:
           "cursor-pointer bg-[linear-gradient(to_right,_#fc2547_0%,_#ff5a00_50%,_#fc2547_100%)] text-primary font-semibold hover:brightness-110",
+        link: "cursor-pointer bg-transparent text-primary underline underline-offset-4 hover:text-primary/80 p-0",
         subtleGradient:
           "cursor-pointer bg-gradient-to-r from-pink-500 to-orange-400 text-primary rounded-full hover:brightness-110",
         outline:

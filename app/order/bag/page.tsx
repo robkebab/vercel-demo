@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import Image from "next/image";
 import { Icon } from "@/components/ui/icon";
 import {
@@ -19,6 +18,8 @@ import {
   clearBagAction,
 } from "./actions";
 import Link from "next/link";
+import { PointsAlert, PointsAlertSkeleton } from "./points-alert";
+import { Suspense } from "react";
 
 export default async function BagPage() {
   const bag = await getBag();
@@ -29,7 +30,6 @@ export default async function BagPage() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 px-2 md:px-8 py-6 w-full max-w-7xl mx-auto">
-      {/* Left: Order Details */}
       <div className="flex-1 min-w-0">
         <Card className="mb-6">
           <CardHeader>
@@ -186,25 +186,9 @@ export default async function BagPage() {
             </div>
           </CardContent>
         </Card>
-        <Alert className="mt-2">
-          <AlertTitle>
-            You could receive{" "}
-            <span className="text-primary font-bold">126 points</span> for this
-            purchase.
-          </AlertTitle>
-          <AlertDescription>
-            <span>
-              <a href="#" className="underline text-primary">
-                Sign in
-              </a>{" "}
-              or{" "}
-              <a href="#" className="underline text-primary">
-                sign up
-              </a>{" "}
-              for a Tommy Want Wingy account.
-            </span>
-          </AlertDescription>
-        </Alert>
+        <Suspense fallback={<PointsAlertSkeleton />}>
+          <PointsAlert />
+        </Suspense>
       </div>
     </div>
   );
