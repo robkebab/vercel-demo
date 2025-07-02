@@ -52,7 +52,7 @@ export function HomeHero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center min-h-[80vh] w-full px-4 md:px-0 overflow-hidden"
+      className="relative flex flex-col items-center justify-center min-h-[80vh] w-full px-4 md:px-0 overflow-hidden max-w-7xl mx-auto"
     >
       {/* Decorative Images */}
       {HERO_IMAGES.map((img, i) => (
