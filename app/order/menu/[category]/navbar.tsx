@@ -26,7 +26,7 @@ export function Navbar() {
       <div className="flex-1 flex justify-center items-center">
         <Link
           href="/order/menu/combos"
-          className="hidden md:inline text-primary font-semibold"
+          className="hidden md:inline text-primary font-semibold hover:text-orange-500"
         >
           Menu
         </Link>
