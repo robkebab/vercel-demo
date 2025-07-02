@@ -7,15 +7,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/icon";
-import {
-  clearBagAction,
-  decrementItemQuantityAction,
-  incrementItemQuantityAction,
-  removeItemFromBagAction,
-} from "./actions";
+import { clearBagAction, removeItemFromBagAction } from "./actions";
 import { getBag } from "@/lib/service/bag";
 import Image from "next/image";
+import { QuantityButtonGroup } from "./quantity-button-group";
+import {
+  decrementItemQuantityAction,
+  incrementItemQuantityAction,
+} from "./actions";
 
 export async function BagSummary() {
   const bag = await getBag();
@@ -81,42 +80,11 @@ export async function BagSummary() {
                           Delete
                         </Button>
                       </form>
-                      <div className="flex items-center border rounded-md text-primary">
-                        <form
-                          action={decrementItemQuantityAction.bind(
-                            null,
-                            item.productId,
-                          )}
-                        >
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            className="px-2 py-1 h-7 rounded-r-none border-r cursor-pointer"
-                            type="submit"
-                            disabled={item.quantity === 1}
-                          >
-                            <Icon.Minus className="w-4 h-4 text-primary" />
-                          </Button>
-                        </form>
-                        <span className="px-3 py-1 text-sm font-medium min-w-[2rem] text-center">
-                          {item.quantity}
-                        </span>
-                        <form
-                          action={incrementItemQuantityAction.bind(
-                            null,
-                            item.productId,
-                          )}
-                        >
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            className="px-2 py-1 h-7 rounded-l-none border-l cursor-pointer"
-                            type="submit"
-                          >
-                            <Icon.Plus className="w-4 h-4 text-primary" />
-                          </Button>
-                        </form>
-                      </div>
+                      <QuantityButtonGroup
+                        item={item}
+                        decrementAction={decrementItemQuantityAction}
+                        incrementAction={incrementItemQuantityAction}
+                      />
                     </div>
                   </div>
                 </li>
