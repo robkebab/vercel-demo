@@ -17,6 +17,22 @@ export function SignIn({
   );
 }
 
+export function SignInLink() {
+  return (
+    <form
+      action={async () => {
+        "use server";
+        await signIn();
+      }}
+      className="inline-block"
+    >
+      <button className="underline text-primary cursor-pointer hover:text-primary/80 p-0">
+        Sign In
+      </button>
+    </form>
+  );
+}
+
 export function SignOut(props: React.ComponentPropsWithRef<typeof Button>) {
   return (
     <form
