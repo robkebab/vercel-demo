@@ -4,7 +4,9 @@
   "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
-    "build": "pnpm db:generate --no-engine && next build",
+    "build": "pnpm turbo db:build app:build",
+    "app:build": "next build",
+    "db:build": "pnpm db:generate --no-engine",
     "db:client": "prisma studio",
     "db:create-migration": "prisma migrate dev --create-only",
     "db:generate": "prisma generate",
