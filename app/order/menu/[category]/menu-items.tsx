@@ -3,7 +3,7 @@ import AddToBagButton from "./add-to-bag";
 import Image from "next/image";
 import { Product } from "@db/prisma/client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getProductsByCategory } from "@db/product";
+import { getProductsByCategory } from "@/lib/service/product";
 
 interface MenuItemsProps {
   categoryId: string;

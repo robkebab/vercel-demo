@@ -4,7 +4,7 @@ import {
 } from "@/app/order/menu/[category]/menu-items";
 import { Sidenav } from "@/app/order/menu/[category]/sidenav";
 import { Suspense } from "react";
-import { listCategories } from "@/lib/db/category";
+import { listCategories } from "@/lib/service/category";
 
 interface IOrderMenuPageProps {
   params: Promise<{ category: string }>;

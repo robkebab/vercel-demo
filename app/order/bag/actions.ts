@@ -6,7 +6,7 @@ import {
   decrementItemQuantity,
   incrementItemQuantity,
   removeItemFromBag,
-} from "@db/bag";
+} from "@/lib/service/bag";
 
 export async function incrementItemQuantityAction(productId: string) {
   await incrementItemQuantity(productId);

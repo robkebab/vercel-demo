@@ -1,4 +1,4 @@
-import { getBag } from "@/lib/db/bag";
+import { getBag } from "@/lib/service/bag";
 import {
   Card,
   CardContent,
