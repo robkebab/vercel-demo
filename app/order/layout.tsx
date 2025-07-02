@@ -6,6 +6,8 @@ interface OrderLayoutProps {
   children: ReactNode;
 }
 
+export const experimental_ppr = true;
+
 export default function OrderLayout({ children }: OrderLayoutProps) {
   return (
     <>
